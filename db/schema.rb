@@ -16,20 +16,20 @@ ActiveRecord::Schema.define(version: 2019_11_07_174418) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.date "date_of_birth", null: false
+    t.date "date_of_birth"
     t.string "username", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "email", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
     t.string "encrypted_password", null: false
     t.string "session_token", null: false
-    t.string "gender", null: false
-    t.string "height", null: false
-    t.string "weight", null: false
-    t.string "street", null: false
-    t.string "city", null: false
-    t.string "state", null: false
-    t.string "zipcode", null: false
+    t.string "gender"
+    t.string "height"
+    t.string "weight"
+    t.string "street"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -778,13 +778,13 @@ __webpack_require__.r(__webpack_exports__);
 var Auth = function Auth(_ref) {
   var Component = _ref.component,
       path = _ref.path,
-      loggedIn = _ref.loggedIn,
+      signedIn = _ref.signedIn,
       exact = _ref.exact;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: path,
     exact: exact,
     render: function render(props) {
-      return !loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+      return !signedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
         to: "/"
       });
     }
@@ -794,14 +794,14 @@ var Auth = function Auth(_ref) {
 var Protected = function Protected(_ref2) {
   var Component = _ref2.component,
       path = _ref2.path,
-      loggedIn = _ref2.loggedIn,
+      signedIn = _ref2.signedIn,
       exact = _ref2.exact;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: path,
     exact: exact,
     render: function render(props) {
-      return loggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
-        to: "/login"
+      return signedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+        to: "/signin"
       });
     }
   });
@@ -809,7 +809,7 @@ var Protected = function Protected(_ref2) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    loggedIn: Boolean(state.session.id)
+    signedIn: Boolean(state.session.id)
   };
 };
 
