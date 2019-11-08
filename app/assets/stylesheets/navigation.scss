@@ -1,23 +1,21 @@
 nav {
-  overflow: hidden;
   background-color: white;
   border-bottom: 1px solid #e6e6eb;
-  height: 55px;
   padding-right: 16px;
   padding-left: 16px;
-  align-items: center;
 }
 
-button {
+#logo-image {
+  margin-bottom: 4px;
+}
+
+#signin-button {
+  box-shadow: none;
   font-size: 14px;
-	float: right;
-  border-radius: 5px;
-  width: 74px;
-  height: 31px;
   font-weight: bold;
-  margin-top: 12px;
+  width: 75px;
+  color: black;
+  background-color: white;
+  border: 1px solid #e6e6eb;
 }
 
-nav > img {
-  margin-top: 18px;
-}
