@@ -24,7 +24,7 @@ const App = () => (
     	<header>
 	     	<NavigationContainer />
 	     	<SplashContainer />
-	     	<SignupContainer />
+	     	
         </header>
     
     	<Switch>
