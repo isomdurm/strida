@@ -15,7 +15,7 @@ const Splash = ({ currentUser, signin, signout }) => {
 	</div>
   );
 
-  return SplashModal();
+  // return SplashModal();
 };
 
 
