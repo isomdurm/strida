@@ -17,14 +17,12 @@ import SignupContainer from './signup/signup_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
-// help 
-
 const App = () => (
 	<div>
     	<header>
 	     	<NavigationContainer />
 	     	<SplashContainer />
-	     	
+	     	<SignupContainer />
         </header>
     
     	<Switch>

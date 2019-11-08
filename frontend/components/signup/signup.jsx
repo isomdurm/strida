@@ -9,7 +9,7 @@ const Signup = ({ currentUser, signup }) => {
     		<button>Sign up with Facebook</button>
     		<button>Sign up with Google</button>
     	</div>
-    	
+  
     	<div id="signup-email">
 			<button>Use my email</button>
 		</div>
