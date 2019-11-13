@@ -4,31 +4,42 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 
 
-const Navigation = ({ currentUser, signin, signout }) => {
-  
- //  const signoutNavigation = () => (
- //    <nav>
-	// 	<img src="/images/strida.png" height="20" width="95"/>
-	// 	<button onClick={signout}>Sign Out</button>
-	// </nav>
- //  );
+class NavigationBar extends React.Component {
+  constructor(props) {
+    super(props);
 
-  const signinNavigation = () => (
-    <Navbar>
-      <Navbar.Brand href="#home">
-        <img id="logo-image" src={window.logoURL} height="20" width="95"/>
-      </Navbar.Brand>
+    this.handleSignout = this.handleSignout.bind(this);
+  }
+
+  handleSignout(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.signout(user);
+  }
+
+  render() {
+    let button;
+    if (this.props.currentUser) {
+      button = <a href={'#/signout'}><Button id={'signout-button'} size="sm" onClick={this.handleSignout}>Sign Out</Button></a>  
+    } else {
+      button = <a href={"#/signin"}><Button id={"signin-button"} size="sm">Sign In</Button></a>;
+    }
+
+    return (
+      <Navbar>
+        <Navbar.Brand href="#">
+          <img id="logo-image" src={window.logoURL} height="20" width="95"/>
+        </Navbar.Brand>
       
-      <Navbar.Toggle />
+        <Navbar.Toggle />
         
-      <Navbar.Collapse className="justify-content-end">
-          <a href="#/signin"><Button id="signin-button" size="sm">Sign In</Button></a>
-      </Navbar.Collapse>
-    </Navbar>
-  );
+        <Navbar.Collapse className="justify-content-end">
+          { button }
+        </Navbar.Collapse>
+      </Navbar>
+    )
+  }
+}
 
-  return signinNavigation();
-};
 
-
-export default Navigation;
+export default NavigationBar;

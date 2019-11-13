@@ -1,4 +1,8 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -36,27 +40,24 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="signin-form-container">
-        <form onSubmit={this.handleSubmit} className="signin-form-box">
-          {this.renderErrors()}
-          <div className="signin-form">
-            <br/>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                className="signin-input"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="signin-input"
-              />
-            <br/>
-            <input className="session-submit" type="submit" value={this.props.formType} />
-          </div>
-        </form>
-      </div>
+      <Row>
+        <Col sm={{ span: 4, offset: 4 }} id="signin-container">
+          <h2> Sign In </h2>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control type="email" placeholder="Enter email" value={this.state.username} onChange={this.update('username')} />
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={this.update('password')} />
+            </Form.Group>
+      
+            <Button variant="primary" type="submit" id="sign-in-button" value={this.props.formType}>
+              Submit
+            </Button>
+          </Form>
+        </Col>
+      </Row>
     );
   }
 }

@@ -11,3 +11,40 @@
 #splash-image-container {
 	margin-top: 15px;
 }
+
+@media (max-width: 480px) {
+	#splash-image {
+		width: auto;
+		max-height: 220px;
+	}
+
+	h2 {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 767px) {
+	#splash-image {
+		width: auto;
+		max-height: 260px;
+	}
+
+	#splash-header {
+		margin-bottom: 24px;
+	}
+
+	h2 {
+		font-size: 34px;
+	}
+}
+
+#signin-container {
+	background-color: rgba(0,0,0,0.75);
+	margin-top: 50px;
+	text-align: center;
+	border-radius: 5px;
+}
+
+#sign-in-button {
+	margin-bottom: 25px;
+}

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { signout, signin } from '../../actions/session_actions';
-import Navigation from './navigation';
+import Home from './home';
 
 const mapStateToProps = ({ session, entities: { users } }) => {
   return {
@@ -14,4 +14,7 @@ const mapDispatchToProps = dispatch => ({
   signin: () => dispatch(signin())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
