@@ -622,6 +622,9 @@ function (_React$Component) {
     _classCallCheck(this, NavigationBar);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(NavigationBar).call(this, props));
+    _this.state = {
+      clicked: "demo"
+    };
     _this.handleSignout = _this.handleSignout.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -664,7 +667,13 @@ function (_React$Component) {
         width: "95"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"].Toggle, null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"].Collapse, {
         className: "justify-content-end"
-      }, button));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "#/signin"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        id: "demo-button",
+        size: "sm",
+        value: this.state.clicked
+      }, "Demo")), button));
     }
   }]);
 
@@ -796,11 +805,13 @@ function (_React$Component) {
     _classCallCheck(this, SessionForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SessionForm).call(this, props));
+    console.log(_this.props);
     _this.state = {
       username: '',
       password: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDemo = _this.handleDemo.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -818,6 +829,17 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
+      this.props.processForm(user);
+      this.props.history.push('/feed');
+    }
+  }, {
+    key: "handleDemo",
+    value: function handleDemo(e) {
+      e.preventDefault();
+      this.setState({
+        username: "demo@isom.tech",
+        password: "password"
+      });
       this.props.processForm(user);
       this.props.history.push('/feed');
     }

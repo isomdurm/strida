@@ -9,7 +9,18 @@ nav {
   margin-bottom: 4px;
 }
 
+#demo-button {
+  box-shadow: none;
+  font-size: 14px;
+  font-weight: bold;
+  width: 75px;
+  color: black;
+  background-color: white;
+  border: 1px solid #ccccd1;
+}
+
 #signin-button {
+  margin-left: 10px;
   box-shadow: none;
   font-size: 14px;
   font-weight: bold;

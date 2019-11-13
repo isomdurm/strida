@@ -8,6 +8,10 @@ class NavigationBar extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      clicked: "demo"
+    };
+
     this.handleSignout = this.handleSignout.bind(this);
   }
 
@@ -35,6 +39,8 @@ class NavigationBar extends React.Component {
         <Navbar.Toggle />
         
         <Navbar.Collapse className="justify-content-end">
+
+        <a href={"#/signin"}><Button id="demo-button" size="sm"  value={this.state.clicked}>Demo</Button></a>
           { button }
         </Navbar.Collapse>
       </Navbar>

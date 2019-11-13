@@ -7,11 +7,15 @@ import Button from 'react-bootstrap/Button';
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
+
+    console.log(this.props);
+    
     this.state = {
       username: '',
       password: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -23,6 +27,18 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
+    this.props.processForm(user);
+    this.props.history.push('/feed');
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+
+    this.setState({
+      username: "demo@isom.tech",
+      password: "password"
+    });
+
     this.props.processForm(user);
     this.props.history.push('/feed');
   }
