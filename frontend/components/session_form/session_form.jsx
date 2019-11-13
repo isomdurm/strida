@@ -24,6 +24,7 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+    this.props.history.push('/feed');
   }
 
   renderErrors() {
@@ -42,7 +43,7 @@ class SessionForm extends React.Component {
     return (
       <Row>
         <Col sm={{ span: 4, offset: 4 }} id="signin-container">
-          <h2> Sign In </h2>
+          <h2> {this.props.formType} </h2>
           <Form onSubmit={this.handleSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Control type="email" placeholder="Enter email" value={this.state.username} onChange={this.update('username')} />

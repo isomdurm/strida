@@ -1,17 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
+import SplashContainer from '../splash/splash_container';
+import SignupContainer from '../signup/signup_container';
 
-const Feed = ({ currentUser }) => {
+const Home = ({ currentUser, signin, signout }) => {
 
-  const createFeed = () => (
-    <div id='map'></div>
+  const splashHome = () => (
+    <Container id="splash-container">
+	    <SplashContainer />
+	    <SignupContainer />
+	</Container>
   );
 
-  return createFeed();
+  return splashHome();
 };
 
 
-export default Feed;
+export default Home;

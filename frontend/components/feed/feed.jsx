@@ -140,9 +140,14 @@ mapTwo.addLayer({
 
   render() {
     return (
-      <div className="mapContainer">
+    	<div className="feed-maps">
+      <Col sm={{ span: 12 }} className="mapContainer">
 		<div ref={el => this.mapContainer = el} className="mapContainer" />
-		<div ref={el => this.mapContainerTwo = el} className="mapContainer" />
+	  </Col>
+
+	  <Col sm={{ span: 12 }} className="mapContainerTwo">
+		<div ref={el => this.mapContainerTwo = el} className="mapContainerTwo" />
+	  </Col>
 	  </div>
     );
   }

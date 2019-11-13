@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
+import React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 
 
 class NavigationBar extends React.Component {
@@ -19,8 +19,9 @@ class NavigationBar extends React.Component {
 
   render() {
     let button;
+
     if (this.props.currentUser) {
-      button = <a href={'#/signout'}><Button id={'signout-button'} size="sm" onClick={this.handleSignout}>Sign Out</Button></a>  
+      button = <a href={"#/signout"}><Button id={"signout-button"} size="sm" onClick={this.handleSignout}>Sign Out</Button></a>  
     } else {
       button = <a href={"#/signin"}><Button id={"signin-button"} size="sm">Sign In</Button></a>;
     }
