@@ -1,27 +1,52 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-const src = '<%= asset_path "strida.png" %>';
-
-
-const Navigation = ({ currentUser, signin, signout }) => {
-  
-  const signoutNavigation = () => (
-    <nav>
-		<img src="/images/strida.png" height="20" width="95"/>
-		<button onClick={signout}>Sign Out</button>
-	</nav>
-  );
-
-  const signinNavigation = () => (
-    <nav>
-		<img src="/images/strida.png" height="20" width="95"/>
-		<a href="#/signin"><button>Sign In</button></a>
-	</nav>
-  );
-
-  return currentUser ? signoutNavigation() : signinNavigation();
-};
+import React from "react";
+import { Link } from "react-router-dom";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 
 
-export default Navigation;
+class NavigationBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      clicked: "demo"
+    };
+
+    this.handleSignout = this.handleSignout.bind(this);
+  }
+
+  handleSignout(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.signout(user);
+  }
+
+  render() {
+    let button;
+
+    if (this.props.currentUser) {
+      button = <a href={"#/signout"}><Button id={"signout-button"} size="sm" onClick={this.handleSignout}>Sign Out</Button></a>  
+    } else {
+      button = <a href={"#/signin"}><Button id={"signin-button"} size="sm">Sign In</Button></a>;
+    }
+
+    return (
+      <Navbar>
+        <Navbar.Brand href="#">
+          <img id="logo-image" src={window.logoURL} height="20" width="95"/>
+        </Navbar.Brand>
+      
+        <Navbar.Toggle />
+        
+        <Navbar.Collapse className="justify-content-end">
+
+        <a href={"#/signin"}><Button id="demo-button" size="sm"  value={this.state.clicked}>Demo</Button></a>
+          { button }
+        </Navbar.Collapse>
+      </Navbar>
+    )
+  }
+}
+
+
+export default NavigationBar;
