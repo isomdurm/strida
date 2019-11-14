@@ -192,6 +192,8 @@ class Feed extends React.Component {
   			var lastFeature = data.features.length - 1;
   			var coords = data.features[lastFeature].geometry.coordinates;
   			var newCoords = coords.join(';')
+  			console.log(coords);
+  			console.log("coords");
   			getMatch(newCoords);
 		}
 

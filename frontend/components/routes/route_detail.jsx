@@ -16,11 +16,24 @@ class RouteDetail extends React.Component {
     	this.state = {
 			lng: lat,
 			lat: long,
-			zoom: 13
+			zoom: 14,
+			distance: "0",
+			duration: "0"
 		};
   	}
 
   	componentDidMount() {
+  		const that = this;
+
+  		const routeCoords = Object.values(this.props.route.coordinates);
+  		const coordsArr = [];
+
+  		routeCoords.map(coord => {
+  			coordsArr.push([coord.lat, coord.long]);
+  		})
+
+  		console.log(coordsArr)
+
 
   		mapboxgl.accessToken = 'pk.eyJ1IjoiaXNvbWR1cm0iLCJhIjoiY2loNThoYXh3MDBoNnRza290enF6YWNobiJ9.gm2YkuDsq--gEyl1YGCL_g';
 
@@ -43,29 +56,7 @@ class RouteDetail extends React.Component {
 						"properties": {},
 						"geometry": {
 							"type": "LineString",
-							"coordinates": [
-								[-122.48369693756104, 37.83381888486939],
-								[-122.48348236083984, 37.83317489144141],
-								[-122.48339653015138, 37.83270036637107],
-								[-122.48356819152832, 37.832056363179625],
-								[-122.48404026031496, 37.83114119107971],
-								[-122.48404026031496, 37.83049717427869],
-								[-122.48348236083984, 37.829920943955045],
-								[-122.48356819152832, 37.82954808664175],
-								[-122.48507022857666, 37.82944639795659],
-								[-122.48610019683838, 37.82880236636284],
-								[-122.48695850372314, 37.82931081282506],
-								[-122.48700141906738, 37.83080223556934],
-								[-122.48751640319824, 37.83168351665737],
-								[-122.48803138732912, 37.832158048267786],
-								[-122.48888969421387, 37.83297152392784],
-								[-122.48987674713133, 37.83263257682617],
-								[-122.49043464660643, 37.832937629287755],
-								[-122.49125003814696, 37.832429207817725],
-								[-122.49163627624512, 37.832564787218985],
-								[-122.49223709106445, 37.83337825839438],
-								[-122.49378204345702, 37.83368330777276]
-							]
+							"coordinates": coordsArr
 						}
 					}
 				},
@@ -78,43 +69,34 @@ class RouteDetail extends React.Component {
 					"line-width": 8
 				}
 			});
+
+			var newCoords = coordsArr.join(';')
+
+			getMatch(newCoords, that);
 		});
 
-		var geojson = {
-			"type": "FeatureCollection",
-			"features": [
-				{
-					"type": "Feature",
-					"properties": {
-						"message": "Foo",
-						"iconSize": [60, 60]
-					},
-					"geometry": {
-						"type": "Point",
-						"coordinates": [-122.49378204345702, 37.83368330777276]
-					}
-				}, {
-					"type": "Feature",
-					"properties": {
-						"message": "Bar",
-						"iconSize": [50, 50]
-					},
-					"geometry": {
-						"type": "Point",
-						"coordinates": [-122.49223709106445, 37.83337825839438]
-					}
-				}, {
-					"type": "Feature",
-					"properties": {
-						"message": "Baz",
-						"iconSize": [40, 40]
-					},
-					"geometry": {
-						"type": "Point",
-						"coordinates": [-63.29223632812499, -18.28151823530889]
-					}
-				}
-			]
+		function getMatch(e, that) {
+	    	// https://www.mapbox.com/api-documentation/#directions
+	    	console.log('here')
+	    	var url = 'https://api.mapbox.com/directions/v5/mapbox/cycling/' + e +'?geometries=geojson&steps=true&&access_token=' + mapboxgl.accessToken;
+	    	var req = new XMLHttpRequest();
+	    	req.responseType = 'json';
+	    	req.open('GET', url, true);
+	    	req.onload  = function() {
+	      		var jsonResponse = req.response;
+	      		console.log(jsonResponse);
+	      		var distance = jsonResponse.routes[0].distance*0.001; // convert to km
+	      		var duration = jsonResponse.routes[0].duration/60; // convert to minutes
+	      		// add results to info box
+	      		that.setState({
+	      			distance: distance,
+	      			duration: duration
+	      		})
+
+	      		console.log(that.state);
+
+	    	};
+	    	req.send();
 		}
 	};
 
@@ -128,6 +110,12 @@ class RouteDetail extends React.Component {
 					<Card.Title>{ name }</Card.Title>
 					<Card.Text>
   						{ description }
+					</Card.Text>
+					<Card.Text>
+  						{ this.state.distance }
+					</Card.Text>
+					<Card.Text>
+  						{ this.state.duration }
 					</Card.Text>
 				</Card.Body>
 			</Card>    
