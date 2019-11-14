@@ -15,6 +15,7 @@ import NavigationContainer from './navigation/navigation_container';
 import SignupContainer from './signup/signup_container';
 import SplishContainer from './home/home_container';
 import FeedContainer from './feed/feed_container';
+import RouteContainer from './routes/route_container';
 
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -29,6 +30,7 @@ const App = () => (
   		<AuthRoute exact path="/signin" component={SignInFormContainer} />
     	<AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path="/feed" component={FeedContainer} />
+      <ProtectedRoute exact path="/routes" component={RouteContainer} />
   	</Switch>
 	</div>
 );
