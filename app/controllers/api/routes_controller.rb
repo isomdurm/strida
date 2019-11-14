@@ -9,7 +9,7 @@ class Api::RoutesController < ApplicationController
     @route = Route.find(params[:id])
   end
 
-  def crea
+  def create
     @route = Route.create!(route_params)
     render :show
   end

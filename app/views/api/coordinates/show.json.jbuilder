@@ -1,1 +1,3 @@
-json.partial! "api/coordinates/coordinate", coordinate: @coordinate
+json.coordinate do
+  json.partial! '/api/coordinate/coordinate', coordinate: @coordinate
+end

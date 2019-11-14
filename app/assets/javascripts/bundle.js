@@ -583,22 +583,15 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
-
       e.preventDefault();
       console.log(this.state.coordinates);
-      console.log("try");
-      this.state.coordinates.forEach(function (coord) {
-        var full = {
-          "route_id": 1,
-          "lat": coord[0],
-          "long": coord[1]
-        };
+      console.log("try"); // this.state.coordinates.forEach(coord => {
+      // 	let full = { "route_id": 1, "lat": coord[0], "long": coord[1]}
+      // 	this.props.createCoordinate(full);
+      // });
 
-        _this2.props.createCoordinate(full);
-      });
       var route = {
-        "owner_id": 3,
+        "owner_id": 1,
         "name": "isom",
         "route_type": "walking",
         "private": true,
@@ -609,13 +602,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this,
+      var _this2 = this,
           _React$createElement;
 
       var coordinates = this.state.coordinates;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         ref: function ref(el) {
-          return _this3.mapContainer = el;
+          return _this2.mapContainer = el;
         },
         className: "mapContainer"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

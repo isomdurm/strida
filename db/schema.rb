@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_043138) do
     t.float "long"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["route_id"], name: "index_coordinates_on_route_id"
   end
 
   create_table "routes", force: :cascade do |t|
