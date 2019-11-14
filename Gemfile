@@ -27,6 +27,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'jquery-rails'
 
+gem 'rails_12factor'
+
 
 
 # Use ActiveStorage variant
