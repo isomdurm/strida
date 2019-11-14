@@ -583,13 +583,20 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       console.log(this.state.coordinates);
-      console.log("try"); // this.state.coordinates.forEach(coord => {
-      // 	let full = { "route_id": 1, "lat": coord[0], "long": coord[1]}
-      // 	this.props.createCoordinate(full);
-      // });
+      console.log("try");
+      this.state.coordinates.forEach(function (coord) {
+        var full = {
+          "route_id": 1,
+          "lat": coord[0],
+          "long": coord[1]
+        };
 
+        _this2.props.createCoordinate(full);
+      });
       var route = {
         "owner_id": 1,
         "name": "isom",
@@ -602,13 +609,13 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this,
+      var _this3 = this,
           _React$createElement;
 
       var coordinates = this.state.coordinates;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         ref: function ref(el) {
-          return _this2.mapContainer = el;
+          return _this3.mapContainer = el;
         },
         className: "mapContainer"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -36902,7 +36909,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
+/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

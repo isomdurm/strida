@@ -11,11 +11,5 @@ end
       json.partial! 'api/coordinates/coordinate', coordinate: coordinate
     end
   end
-
-  # json.authors do
-  #   json.set! review.author.id do
-  #     json.extract! review.author, :id, :username
-  #   end
-  # end
 end
 

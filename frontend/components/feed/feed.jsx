@@ -273,10 +273,10 @@ class Feed extends React.Component {
 
     	console.log("try");
 
-    	// this.state.coordinates.forEach(coord => {
-    	// 	let full = { "route_id": 1, "lat": coord[0], "long": coord[1]}
-    	// 	this.props.createCoordinate(full);
-    	// });
+    	this.state.coordinates.forEach(coord => {
+    		let full = { "route_id": 1, "lat": coord[0], "long": coord[1]}
+    		this.props.createCoordinate(full);
+    	});
 
 	    let route = { "owner_id": 1, "name": "isom", "route_type": "walking", "private": true, "description": "this is a test description" };
     	this.props.createRoute(route);
