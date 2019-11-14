@@ -15,12 +15,13 @@
       crossorigin="anonymous"
     />
 
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
+    <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css' type='text/css'/>
+
     <script type="text/javascript">
       window.logoURL = "<%= image_url('strida.png') %>";
       window.splashURL = "<%= image_url('splash_image.jpg') %>";
     </script>
-
- <!--    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' /> -->
   </head>
     <%= yield %>
   </body>
