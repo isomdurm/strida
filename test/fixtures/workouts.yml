@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  route_id: 1
+  coordinates: 1.5
+  private: false
+  time_start: 1.5
+  time_end: 1.5
+  songs: MyString
+
+two:
+  route_id: 1
+  coordinates: 1.5
+  private: false
+  time_start: 1.5
+  time_end: 1.5
+  songs: MyString
