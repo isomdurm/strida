@@ -1,18 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Splash = ({ currentUser, signin, signout }) => {
  
   const SplashModal = () => (
-    <div id="splash-container">
-    	<div id="splash-header">
-    		The #1 app for runners and cyclists
-    	</div>
-    
-    	<div id="splash-image-container">
-			<img id="splash-image" src="/images/splash_image.jpg" height="220" width="205"/>
-		</div>
-	</div>
+    <Col sm={{ span: 12 }}>
+    	<h2 id="splash-header">The #1 app for runners and cyclists</h2>
+    </Col>
   );
 
   return SplashModal();

@@ -1,3 +1,5 @@
-html, body {
-  text-align: center;
+@import '../node_modules/mapbox-gl/dist/mapbox-gl.css';
+
+#signin-container {
+	background-color: blue !important;
 }
