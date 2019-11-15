@@ -37,7 +37,7 @@ class RouteDetail extends React.Component {
   		})
 
 
-  		mapboxgl.accessToken = window.mapboxAccessToken;
+  		mapboxgl.accessToken = "pk.eyJ1IjoiaXNoYW1kdXJtIiwiYSI6ImNrMnp0dzdiejBtbDMzbnB3cWl4czJtZ24ifQ.vwwE5NTEzmLwn_Q32O9U2A";
 
 	  	const map = new mapboxgl.Map({
 			container: this.mapContainer,
