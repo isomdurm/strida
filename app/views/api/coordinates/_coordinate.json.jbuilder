@@ -1,1 +1,1 @@
-json.extract! coordinate, :lat, :long
+json.extract! @coordinate, :lat, :long

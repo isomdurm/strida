@@ -4,13 +4,13 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.string :image_url
       t.string :address
-      t.text :description
-      t.integer :route_id
+      t.text :body
+      t.integer :workout_id
 
       t.timestamps
     end
 
     add_index :posts, :user_id
-    add_index :posts, :route_id
+    add_index :posts, :workout_id
   end
 end

@@ -44,6 +44,10 @@ class Routes extends React.Component {
 
     return (
       <div>
+        <Col sm={{ span: 12 }}>
+          <h2>My Routes</h2>
+          <a href={"#/routes/new"}><Button size="sm">New Route</Button></a>  
+        </Col>
         { routes }  
       </div>
 		) 

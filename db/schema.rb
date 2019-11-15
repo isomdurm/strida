@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_053740) do
+ActiveRecord::Schema.define(version: 2019_11_15_012149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "post_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "coordinates", force: :cascade do |t|
     t.integer "route_id"
@@ -38,12 +48,12 @@ ActiveRecord::Schema.define(version: 2019_11_14_053740) do
     t.integer "user_id"
     t.string "image_url"
     t.string "address"
-    t.text "description"
-    t.integer "route_id"
+    t.text "body"
+    t.integer "workout_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["route_id"], name: "index_posts_on_route_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["workout_id"], name: "index_posts_on_workout_id"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -88,6 +98,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_053740) do
     t.string "songs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["route_id"], name: "index_workouts_on_route_id"
   end
 
 end

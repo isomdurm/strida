@@ -22,29 +22,37 @@ class NavigationBar extends React.Component {
   }
 
   render() {
-    let button;
-
-    if (this.props.currentUser) {
-      button = <a href={"#/signout"}><Button id={"signout-button"} size="sm" onClick={this.handleSignout}>Sign Out</Button></a>  
-    } else {
-      button = <a href={"#/signin"}><Button id={"signin-button"} size="sm">Sign In</Button></a>;
-    }
-
-    return (
-      <Navbar>
-        <Navbar.Brand href="#">
-          <img id="logo-image" src={window.logoURL} height="20" width="95"/>
-        </Navbar.Brand>
-      
-        <Navbar.Toggle />
+    if (!this.props.currentUser) {  
+      return (
+        <Navbar>
+          <Navbar.Brand href="#">
+            <img id="logo-image" src={window.logoURL} height="20" width="95"/>
+          </Navbar.Brand>
         
-        <Navbar.Collapse className="justify-content-end">
+          <Navbar.Toggle />
+          
+          <Navbar.Collapse className="justify-content-end">
 
-        <a href={"#/signin"}><Button id="demo-button" size="sm"  value={this.state.clicked}>Demo</Button></a>
-          { button }
-        </Navbar.Collapse>
-      </Navbar>
-    )
+          <a href={"#/signin"}><Button id="demo-button" size="sm"  value={this.state.clicked}>Demo</Button></a>
+          <a href={"#/signin"}><Button id={"signin-button"} size="sm">Sign In</Button></a>
+          </Navbar.Collapse>
+        </Navbar>
+      )
+    } else {
+      return (
+        <Navbar>
+          <Navbar.Brand href="#">
+            <img id="logo-image" src={window.logoURL} height="20" width="95"/>
+          </Navbar.Brand>
+      
+          <Navbar.Toggle />
+        
+          <Navbar.Collapse className="justify-content-end">
+            <a href={"#/signout"}><Button id={"signout-button"} size="sm" onClick={this.handleSignout}>Sign Out</Button></a>  
+          </Navbar.Collapse>
+        </Navbar>
+      )
+    }
   }
 }
 

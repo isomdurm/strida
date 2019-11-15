@@ -2,16 +2,17 @@ class Api::RoutesController < ApplicationController
 
   def index
     @routes = Route.all
-    render :index
+    render 'api/routes/index'
   end
 
   def show
     @route = Route.find(params[:id])
+    render 'api/routes/show'
   end
 
   def create
     @route = Route.create!(route_params)
-    render :show
+    render 'api/routes/show'
   end
 
   private

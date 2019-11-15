@@ -28,8 +28,16 @@ class RouteDetail extends React.Component {
   		const routeCoords = Object.values(this.props.route.coordinates);
   		const coordsArr = [];
 
-  		routeCoords.map(coord => {
-  			coordsArr.push([coord.lat, coord.long]);
+  		const dividedCoords = Math.ceil(routeCoords.length/25);
+
+  		console.log(dividedCoords);
+
+  		routeCoords.map((coord, index) => {
+  			console.log(index);
+
+  			if (index % dividedCoords === 0) {
+  				coordsArr.push([coord.lat, coord.long]);
+  			}
   		})
 
   		console.log(coordsArr)

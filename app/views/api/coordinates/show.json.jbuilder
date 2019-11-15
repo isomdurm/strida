@@ -1,3 +1,3 @@
 json.coordinate do
-  json.partial! '/api/coordinate/coordinate', coordinate: @coordinate
+  json.partial! '/api/coordinates/coordinate', route: @coordinate
 end

@@ -9,21 +9,21 @@ const Signup = ({ currentUser, signup }) => {
  
   const SignupModal = () => (
     <Row smid="signup-container">
-      <Col sm={{ span: 12 }} xl={{ span: 6}}>
+      <Col sm={{ span: 12 }} xl={{ span: 6 }}>
         <img id="splash-image" src={window.splashURL}/>
       </Col>
 
-      <Col sm={{ span: 12 }} xl={{ span: 6}}>    
-        <Col sm={{ span: 10 }} id="signup-fb-button">
-    		  <a href="#/signup"><Button>Sign up with Facebook</Button></a>
+      <Col sm={{ span: 12 }} xl={{ span: 6 }}>    
+        <Col sm={{ span: 12 }}>
+    		  <a href="#/signup"><Button id="signup-fb-button"><i class="fa fa-facebook-official"></i>Sign up with Facebook</Button></a>
         </Col>
 
-        <Col sm={{ span: 10 }} id="signup-g-button">
-    		  <a href="#/signup"><Button>Sign up with Google</Button></a>
+        <Col sm={{ span: 12 }}>
+    		  <a href="#/signup"><Button id="signup-g-button"><i class="fa fa-google" aria-hidden="true"></i>Sign up with Google</Button></a>
         </Col>
-
-        <Col sm={{ span: 10 }} id="signup-email-button">
-          <a href="#/signup"><Button>Use my email</Button></a>
+        <div id="lineitem"></div>
+        <Col sm={{ span: 12 }}>
+          <a href="#/signup"><Button id="signup-email-button"><i class="fa fa-envelope-o" aria-hidden="true"></i>Use my email</Button></a>
         </Col>
       </Col>
     </Row>
