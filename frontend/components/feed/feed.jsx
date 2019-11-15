@@ -23,7 +23,7 @@ class Feed extends React.Component {
  	componentDidMount() {
  		let that = this;
 
-	  	mapboxgl.accessToken = 'pk.eyJ1IjoiaXNvbWR1cm0iLCJhIjoiY2loNThoYXh3MDBoNnRza290enF6YWNobiJ9.gm2YkuDsq--gEyl1YGCL_g';
+	  	mapboxgl.accessToken = { window.mapboxAccessToken };
 
 	  	const map = new mapboxgl.Map({
 			container: this.mapContainer,

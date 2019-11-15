@@ -11,8 +11,6 @@ class RouteDetail extends React.Component {
     	const { name, description } = this.props.route;
     	const { lat, long } = this.props.route.coordinates[0];
 
-    	console.log(this.props.route.coordinates[0]);
-
     	this.state = {
 			lng: lat,
 			lat: long,
@@ -30,20 +28,16 @@ class RouteDetail extends React.Component {
 
   		const dividedCoords = Math.ceil(routeCoords.length/25);
 
-  		console.log(dividedCoords);
 
   		routeCoords.map((coord, index) => {
-  			console.log(index);
 
   			if (index % dividedCoords === 0) {
   				coordsArr.push([coord.lat, coord.long]);
   			}
   		})
 
-  		console.log(coordsArr)
 
-
-  		mapboxgl.accessToken = 'pk.eyJ1IjoiaXNvbWR1cm0iLCJhIjoiY2loNThoYXh3MDBoNnRza290enF6YWNobiJ9.gm2YkuDsq--gEyl1YGCL_g';
+  		mapboxgl.accessToken = { window.mapboxAccessToken };
 
 	  	const map = new mapboxgl.Map({
 			container: this.mapContainer,
